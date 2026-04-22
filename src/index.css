@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  --color-bg: #f8fafc;
+  --color-bg-elev: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+}
+
+:root.dark {
+  --color-bg: #0f172a;
+  --color-bg-elev: #1e293b;
+  --color-border: #334155;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Rubik, Assistant, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Respect safe-area on iOS */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Pre-formatted text must allow bidi auto for mixed Hebrew/English */
+pre,
+code {
+  unicode-bidi: plaintext;
+}
+
+/* Markdown content */
+.prose-rtl h1,
+.prose-rtl h2,
+.prose-rtl h3 {
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+.prose-rtl h1 { font-size: 1.6rem; }
+.prose-rtl h2 { font-size: 1.35rem; }
+.prose-rtl h3 { font-size: 1.15rem; }
+.prose-rtl p { margin: 0.6em 0; line-height: 1.65; }
+.prose-rtl ul, .prose-rtl ol { margin: 0.6em 1.5em; padding: 0; }
+.prose-rtl ul { list-style: disc; }
+.prose-rtl ol { list-style: decimal; }
+.prose-rtl li { margin: 0.25em 0; }
+.prose-rtl code {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+.prose-rtl pre {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.prose-rtl pre code {
+  background: transparent;
+  padding: 0;
+}
+.prose-rtl blockquote {
+  border-inline-start: 4px solid currentColor;
+  padding-inline-start: 1em;
+  opacity: 0.8;
+  margin: 1em 0;
+}
+.prose-rtl a { color: #2563eb; text-decoration: underline; }
+.prose-rtl table {
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.prose-rtl th, .prose-rtl td {
+  border: 1px solid var(--color-border);
+  padding: 0.4em 0.7em;
+}
+
+/* Scrollbar polish for webkit */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 6px;
+}
